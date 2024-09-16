@@ -195,24 +195,25 @@ build() {
 }
 
 package() {
+  mkdir $pkgdir/opt/wine-ntsync
   msg2 "Packaging Wine-32..."
   cd "$srcdir/$pkgname-32-build"
 
-  make prefix="$pkgdir/opt" \
-    libdir="$pkgdir/opt/lib32" \
-    dlldir="$pkgdir/opt/lib32/wine" install
+  make prefix="$pkgdir/opt/wine-ntsync" \
+    libdir="$pkgdir/opt/wine-ntsync/lib32" \
+    dlldir="$pkgdir/opt/wine-ntsync/lib32/wine" install
 
   msg2 "Packaging Wine-64..."
   cd "$srcdir/$pkgname-64-build"
-  make prefix="$pkgdir/opt" \
-    libdir="$pkgdir/opt/lib" \
-    dlldir="$pkgdir/opt/lib/wine" install
+  make prefix="$pkgdir/opt/wine-ntsync" \
+    libdir="$pkgdir/opt/wine-ntsync/lib" \
+    dlldir="$pkgdir/opt/wine-ntsync/lib/wine" install
 
-  i686-w64-mingw32-strip --strip-unneeded "$pkgdir"/opt/lib32/wine/i386-windows/*.{dll,exe}
-  x86_64-w64-mingw32-strip --strip-unneeded "$pkgdir"/opt/lib/wine/x86_64-windows/*.{dll,exe}
+  i686-w64-mingw32-strip --strip-unneeded "$pkgdir"/opt/wine-ntsync/lib32/wine/i386-windows/*.{dll,exe}
+  x86_64-w64-mingw32-strip --strip-unneeded "$pkgdir"/opt/wine-ntsync/lib/wine/x86_64-windows/*.{dll,exe}
 
-  find "$pkgdir"/opt/lib{,32}/wine -iname "*.a" -delete
-  find "$pkgdir"/opt/lib{,32}/wine -iname "*.def" -delete
+  find "$pkgdir"/opt/wine-ntsync/lib{,32}/wine -iname "*.a" -delete
+  find "$pkgdir"/opt/wine-ntsync/lib{,32}/wine -iname "*.def" -delete
 }
 
 # vim:set ts=8 sts=2 sw=2 et:
