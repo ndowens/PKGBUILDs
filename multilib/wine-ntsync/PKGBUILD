@@ -5,7 +5,7 @@
 
 pkgname=wine-ntsync
 pkgver=9.8
-pkgrel=1
+pkgrel=1.1
 _tkg_commit=b710a652bb7f582fa65f8d42d727847e231b7095
 
 _pkgbasever=${pkgver/rc/-rc}
@@ -207,12 +207,6 @@ package() {
   make prefix="$pkgdir/opt" \
     libdir="$pkgdir/opt/lib" \
     dlldir="$pkgdir/opt/lib/wine" install
-
-  # Font aliasing settings for Win32 applications
-  install -d "$pkgdir"/usr/share/fontconfig/conf.{avail,default}
-  install -m644 "$srcdir/30-win32-aliases.conf" "$pkgdir/usr/share/fontconfig/conf.avail"
-  ln -s ../conf.avail/30-win32-aliases.conf "$pkgdir/usr/share/fontconfig/conf.default/30-win32-aliases.conf"
-  install -Dm 644 "$srcdir/wine-binfmt.conf" "$pkgdir/usr/lib/binfmt.d/wine.conf"
 
   i686-w64-mingw32-strip --strip-unneeded "$pkgdir"/opt/lib32/wine/i386-windows/*.{dll,exe}
   x86_64-w64-mingw32-strip --strip-unneeded "$pkgdir"/opt/lib/wine/x86_64-windows/*.{dll,exe}
