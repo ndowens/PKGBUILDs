@@ -138,7 +138,7 @@ pkgbase = wine-ntsync
 	optdepends = ntsync-dkms
 	options = !staticlibs
 	options = !lto
-	source = git+https://repo.or.cz/wine/zf.git#commit=b710a652bb7f582fa65f8d42d727847e231b7095
+	source = wine-ntsync::git+https://repo.or.cz/wine/zf.git#commit=b710a652bb7f582fa65f8d42d727847e231b7095
 	source = 30-win32-aliases.conf
 	source = wine-binfmt.conf
 	validpgpkeys = 5AC1A08B03BD7A313E0A955AF5E6E9EEB9461DD7

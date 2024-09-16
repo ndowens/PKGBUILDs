@@ -10,7 +10,7 @@ _tkg_commit=b710a652bb7f582fa65f8d42d727847e231b7095
 
 _pkgbasever=${pkgver/rc/-rc}
 
-source=(git+https://repo.or.cz/wine/zf.git#commit=$_tkg_commit
+source=($pkgname::git+https://repo.or.cz/wine/zf.git#commit=$_tkg_commit
         30-win32-aliases.conf
         wine-binfmt.conf)
 
