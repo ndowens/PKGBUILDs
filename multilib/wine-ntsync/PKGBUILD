@@ -102,7 +102,6 @@ install=wine.install
 prepare() {
   # Get rid of old build dirs
   rm -rf $pkgname-{32,64}-build
-  mv $pkgname wine
   cd $pkgname
 
   ./dlls/winevulkan/make_vulkan
