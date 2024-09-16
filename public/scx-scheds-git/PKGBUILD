@@ -25,6 +25,7 @@ makedepends=(
   meson
   python
   rust
+  cargo
 )
 source=("git+https://github.com/sched-ext/scx#branch=bpfland-next")
 sha256sums=('SKIP')
@@ -70,7 +71,7 @@ prepare() {
 
 build() {
   cd $_gitname
-  arch-meson . build -D openrc=disabled -D libbpf_a=disabled -D bpftool=disabled
+  arch-meson . build -D openrc=disabled -D libbpf_a=disabled -D bpftool=disabled -D enable_rust=true
   meson compile -C build
 }
 

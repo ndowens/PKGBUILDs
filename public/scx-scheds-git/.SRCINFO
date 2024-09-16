@@ -13,6 +13,7 @@ pkgbase = scx-scheds-git
 	makedepends = meson
 	makedepends = python
 	makedepends = rust
+	makedepends = cargo
 	depends = bpf
 	depends = jq
 	depends = libbpf
