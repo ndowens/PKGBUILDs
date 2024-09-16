@@ -5,7 +5,7 @@
 pkgbase=winesync
 pkgname=(winesync-dkms winesync-header winesync-common)
 pkgver=5.16
-pkgrel=1
+pkgrel=2
 pkgdesc="Wine synchronization primitive driver"
 arch=(x86_64)
 url='https://repo.or.cz/linux/zf.git/shortlog/refs/heads/winesync4'
