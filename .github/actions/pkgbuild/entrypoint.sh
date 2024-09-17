@@ -30,6 +30,7 @@ SigLevel = Optional TrustAll
 Server = https://arch.alerque.com/\$arch
 EOM
 	pacman-key --recv-keys 63CC496475267693
+        
 fi
 
 if [ -n "${INPUT_PACMANCONF:-}" ]; then
@@ -48,6 +49,7 @@ pacman -Syu --noconfirm
 # Update keyring
 pacman-key --init
 pacman-key --populate archlinux
+pacman-key -r 349BC7808577C592
 
 pacman -Syu --noconfirm --needed base base-devel
 pacman -Syu --noconfirm --needed ccache
