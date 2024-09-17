@@ -195,7 +195,7 @@ build() {
 }
 
 package() {
-  mkdir $pkgdir/opt/wine-ntsync
+  install -d $pkgdir/opt/wine-ntsync
   msg2 "Packaging Wine-32..."
   cd "$srcdir/$pkgname-32-build"
 
