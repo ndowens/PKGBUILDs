@@ -21,7 +21,7 @@ optdepends=(
   'xdg-utils: open URLs with desktop’s default (xdg-email, xdg-open)'
 )
 source=("ProtonMail-desktop-${_pkgver}.deb::https://proton.me/download/mail/linux/ProtonMail-desktop-beta.deb")
-sha256sums=('127e6f9131d8b7037a18c81bb72873b0faa49ce3d13bd2a54ea65f6c115a2054')
+sha256sums=('bad1a018bfadf06bec78b49d923c13e08b8f8ecc91b4f1bdd785bbc2c8f4c88e')
 
 package() {
   bsdtar -xvf data.tar.xz -C "$pkgdir/"
