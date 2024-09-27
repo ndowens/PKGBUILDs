@@ -64,7 +64,9 @@ pacman-key -r 349BC7808577C592
 
 pacman -Syu --noconfirm --needed base base-devel
 pacman -Syu --noconfirm --needed ccache
-pacman -S clang libc++ lld --noconfirm
+if [ "$INPUT_USEGCC" == false ]; then
+	pacman -S clang libc++ lld --noconfirm
+fi
 if [ "${INPUT_MULTILIB:-false}" == true ]; then
 	pacman -Syu --noconfirm --needed multilib-devel
 fi
