@@ -13,7 +13,7 @@ _configure_args=() # additional args to ./configure will be added during prepare
 _makepkg_options=()
 
 # load functions
-#source "$_where"/wine-tkg-scripts/prepare.sh
+source "$_where"/wine-tkg-scripts/prepare.sh
 source "$_where"/wine-tkg-scripts/build.sh
 
 exit_cleanup() {
