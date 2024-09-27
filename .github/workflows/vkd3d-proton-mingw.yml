@@ -17,3 +17,4 @@ jobs:
     with:
       pkgdir: public/vkd3d-proton-mingw
       repository: ${{ matrix.repository }}
+      usegcc: true
