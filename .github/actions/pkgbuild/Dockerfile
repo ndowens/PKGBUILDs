@@ -1,4 +1,4 @@
-FROM archlinux:base-devel
+FROM cachyos/cachyos-v3:base-devel
 
 COPY entrypoint.sh /entrypoint.sh
 
