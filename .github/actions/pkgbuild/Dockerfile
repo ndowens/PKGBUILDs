@@ -1,4 +1,4 @@
-FROM cachyos/cachyos-v3:base-devel
+FROM cachyos/cachyos-v3
 
 COPY entrypoint.sh /entrypoint.sh
 
