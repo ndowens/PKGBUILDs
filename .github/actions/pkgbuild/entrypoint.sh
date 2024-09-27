@@ -12,7 +12,7 @@ echo "release_repo:   ${INPUT_REPORELEASETAG:-}"
 echo "namcap_disable: ${INPUT_NAMCAPDISABLE:-}"
 echo "namcap_relues:  ${INPUT_NAMCAPRULES:-}"
 echo "namcap_exclude: ${INPUT_NAMCAPEXCLUDERULES:-}"
-echo "usegcc: ${INPUT_USEGCC:-}"
+echo "usegcc: ${INPUT_USEGCC:-false}"
 
 FILE="$(basename "$0")"
 
@@ -24,7 +24,7 @@ Include = /etc/pacman.d/mirrorlist
 EOM
 fi
 
-if [ "${INPUT_USEGCC:-}" == true ]; then
+if [ "${INPUT_USEGCC:-false}" == true ]; then
 	sed -e 's|export CC=clang||' -e 's|export CXX=clang++||' -e 's|-fuse-ld=ldd||' -e 's|-stdlib=libc++||' -i /etc/makepkg.conf
 fi
 if [ -n "${INPUT_AURDEPS:-}" ]; then
