@@ -49,6 +49,10 @@ inputs:
     description: "Install and use ccache-ext"
     required: false
     default: ""
+  usegcc:
+    description: "Use gcc instead of clang"
+    required: false
+    default: ""
 outputs:
   pkgfile0:
     description: "Filename of the 1st generated package archive. Usually only one."
