@@ -1,4 +1,4 @@
-pkgbase = wine-tkg-staging-fsync-git
+pkgbase = wine-tkg-staging-ntsync-git-opt
 	pkgdesc = This "Wine to rule them all" package is the result of some random pkgbuild found online. Looks safe to me, amirite? Some variants of it can be found in lutris runners.
 	pkgver = 0
 	pkgrel = 327
