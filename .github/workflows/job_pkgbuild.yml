@@ -54,6 +54,7 @@ jobs:
         makepkgConf: ${{ inputs.makepkg_conf }}
         makepkgArgs: ${{ inputs.makepkg_args }}
         multilib: ${{ inputs.multilib }}
+        usegcc: ${{ inputs.usegcc }}
         useCcacheExt: ${{ inputs.ccache_ext }}
         repoReleaseTag: ${{ inputs.release_tag }}
 
