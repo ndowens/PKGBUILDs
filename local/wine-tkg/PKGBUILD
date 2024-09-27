@@ -1,6 +1,6 @@
 # Created by: Tk-Glitch <ti3nou at gmail dot com>
 
-pkgname=wine-tkg
+pkgname=wine-tkg-staging-ntsync-git-opt
 pkgver=0
 
 # workaround for pkgrel overwritten on regen
@@ -252,22 +252,6 @@ else
   )
   if [[ "$pkgname" == *-git ]]; then
     replaces=("${pkgname/%-git/-faudio-git}")
-  fi
-fi
-
-if [ -n "$_localbuild" ]; then
-  _winesrcdir="$_localbuild"
-  _use_staging="false"
-  pkgname="$_localbuild"
-  if [ -n "$_PKGNAME_OVERRIDE" ]; then
-    if [ "$_PKGNAME_OVERRIDE" = "none" ]; then
-      pkgname="${pkgname}"
-    else
-      pkgname="${pkgname}-${_PKGNAME_OVERRIDE}"
-    fi
-    if msg2; then # Arch chroot workaround for even more looping fun
-      msg2 "Overriding default pkgname. New pkgname: ${pkgname}"
-    fi
   fi
 fi
 
