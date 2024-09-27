@@ -12,7 +12,10 @@ jobs:
   repository:
     strategy:
       matrix:
-        repository: [personal]
+        include:
+          - repository: personal
+            usegcc: true
+          
     uses: ./.github/workflows/job_pkgrepo.yml
     with:
       pkgdir: local/proton-cachyos
