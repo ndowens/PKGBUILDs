@@ -12,7 +12,7 @@ echo "release_repo:   ${INPUT_REPORELEASETAG:-}"
 echo "namcap_disable: ${INPUT_NAMCAPDISABLE:-}"
 echo "namcap_relues:  ${INPUT_NAMCAPRULES:-}"
 echo "namcap_exclude: ${INPUT_NAMCAPEXCLUDERULES:-}"
-echo "usegcc: ${INPUT_USEGCC:-false}"
+echo "usegcc: ${INPUT_USEGCC:-}"
 
 FILE="$(basename "$0")"
 
