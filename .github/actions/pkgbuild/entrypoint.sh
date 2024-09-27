@@ -28,7 +28,7 @@ if [ "${INPUT_USEGCC}" == false ]; then
 	cat << EOM >> /etc/makepkg.conf
  export CC=clang
  export CXX=clang++
- export CXXFLAGS="$CXXFLAGS -fuse-ld=lld -stdlib=libc++"
+ export CXXFLAGS="\$CXXFLAGS -fuse-ld=lld -stdlib=libc++"
  EOM
 fi
 if [ -n "${INPUT_AURDEPS:-}" ]; then
