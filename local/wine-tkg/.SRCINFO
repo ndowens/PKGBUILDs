@@ -1,30 +1,3 @@
-[1m[34m  ->(B[m[1m (B[m
-[1m[34m  ->(B[m[1m        .---.`               `.---.(B[m
-[1m[34m  ->(B[m[1m     `/syhhhyso-           -osyhhhys/`(B[m
-[1m[34m  ->(B[m[1m    .syNMdhNNhss/``.---.``/sshNNhdMNys.(B[m
-[1m[34m  ->(B[m[1m    +sdMh.`+MNsssssssssssssssNM+`.hMds+(B[m
-[1m[34m  ->(B[m[1m    :syNNdhNNhssssssssssssssshNNhdNNys:(B[m
-[1m[34m  ->(B[m[1m     /ssyhhhysssssssssssssssssyhhhyss/(B[m
-[1m[34m  ->(B[m[1m     .ossssssssssssssssssssssssssssso.(B[m
-[1m[34m  ->(B[m[1m    :sssssssssssssssssssssssssssssssss:(B[m
-[1m[34m  ->(B[m[1m   /sssssssssssssssssssssssssssssssssss/(B[m
-[1m[34m  ->(B[m[1m  :sssssssssssssoosssssssoosssssssssssss:(B[m
-[1m[34m  ->(B[m[1m  osssssssssssssoosssssssoossssssssssssso(B[m
-[1m[34m  ->(B[m[1m  osssssssssssyyyyhhhhhhhyyyyssssssssssso(B[m
-[1m[34m  ->(B[m[1m  /yyyyyyhhdmmmmNNNNNNNNNNNmmmmdhhyyyyyy/(B[m
-[1m[34m  ->(B[m[1m   smmmNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmmms(B[m
-[1m[34m  ->(B[m[1m    /dNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNd/(B[m
-[1m[34m  ->(B[m[1m     `:sdNNNNNNNNNNNNNNNNNNNNNNNNNds:`(B[m
-[1m[34m  ->(B[m[1m        `-+shdNNNNNNNNNNNNNNNdhs+-`(B[m
-[1m[34m  ->(B[m[1m              `.-:///////:-.`(B[m
-[1m[34m  ->(B[m[1m (B[m
-[1m[34m  ->(B[m[1m Initial prompt skipped. Do you remember what it said? 8)(B[m
-[1m[34m  ->(B[m[1m Preset configuration default-tkg will be used to override customization.cfg values.(B[m
-[1m[34m  ->(B[m[1m (B[m
-[1m[34m  ->(B[m[1m Using staging patchset(B[m
-[1m[34m  ->(B[m[1m Using fsync patchset(B[m
-[1m[34m  ->(B[m[1m (B[m
-[1m[34m  ->(B[m[1m ccache was not found and will not be used(B[m
 pkgbase = wine-tkg-staging-fsync-git
 	pkgdesc = This "Wine to rule them all" package is the result of some random pkgbuild found online. Looks safe to me, amirite? Some variants of it can be found in lutris runners.
 	pkgver = 0
@@ -231,6 +204,3 @@ pkgbase = wine-tkg-staging-fsync-git
 
 pkgname = wine-tkg-staging-fsync-git
 	install = wine.install
-[1m[34m  ->(B[m[1m Removed BIG_UGLY_FROGMINER - Ribbit(B[m
-[1m[34m  ->(B[m[1m Removed Proton-tkg token - Valve Ribbit(B[m
-[1m[34m  ->(B[m[1m exit cleanup done(B[m
