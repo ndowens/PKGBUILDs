@@ -22,6 +22,10 @@ on:
         required: false
         type: boolean
         default: true
+      usegcc:
+        required: false
+        type: boolean
+        default: false
       action:
         required: false
         type: string
@@ -44,6 +48,7 @@ jobs:
       multilib: ${{ inputs.multilib }}
       ccache_ext: ${{ inputs.ccache_ext }}
       release_tag: ndowens-${{ inputs.repository }}
+      usegcc: ${{ inputs.usegcc }}
   pkgremove:
     if: ${{ inputs.action == 'remove' }}
     uses: ./.github/workflows/job_pkgremove.yml
