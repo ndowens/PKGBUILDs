@@ -17,6 +17,7 @@ FILE="$(basename "$0")"
 
 if [ "${INPUT_MULTILIB:-false}" == true ]; then
 	# Enable the multilib repository
+ 	sed -i 's,clang,gcc,; /etc/makepkg.conf
 	cat << EOM >> /etc/pacman.conf
 [multilib]
 Include = /etc/pacman.d/mirrorlist
