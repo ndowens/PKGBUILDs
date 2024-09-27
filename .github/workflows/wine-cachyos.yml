@@ -18,3 +18,4 @@ jobs:
       pkgdir: local/wine-cachyos
       repository: ${{ matrix.repository }}
       multilib: true
+      usegcc: true
