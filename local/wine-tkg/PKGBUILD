@@ -250,9 +250,6 @@ else
     "wine-staging=$pkgver"
     "wine-esync=$pkgver"
   )
-  if [[ "$pkgname" == *-git ]]; then
-    replaces=("${pkgname/%-git/-faudio-git}")
-  fi
 fi
 
 makedepends=("${makedepends[@]}" "${depends[@]}")
