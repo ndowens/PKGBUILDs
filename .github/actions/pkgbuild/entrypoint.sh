@@ -24,7 +24,7 @@ Include = /etc/pacman.d/mirrorlist
 EOM
 fi
 
-if [ "${INPUT_USEGCC:-false}" == true ]; then
+if [ "${INPUT_USEGCC}" == true ]; then
 	sed -e 's|export CC=clang||' -e 's|export CXX=clang++||' -e 's|-fuse-ld=ldd||' -e 's|-stdlib=libc++||' -i /etc/makepkg.conf
 fi
 if [ -n "${INPUT_AURDEPS:-}" ]; then
