@@ -1,5 +1,0 @@
-[vicious]
-source = "github"
-github = "Mic92/vicious"
-prefix = "v"
-use_max_tag = true

@@ -1,5 +1,0 @@
-[awesome]
-source = "github"
-github = "awesomeWM/awesome"
-prefix = "v"
-use_max_tag = true
