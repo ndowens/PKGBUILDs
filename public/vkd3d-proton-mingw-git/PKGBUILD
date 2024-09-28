@@ -2,7 +2,7 @@
 
 pkgname=vkd3d-proton-mingw-git
 pkgver=2.13.r137.g486dd4bf
-pkgrel=1
+pkgrel=2
 pkgdesc='Fork of VKD3D. Development branches for Protons Direct3D 12 implementation'
 arch=('x86_64')
 url="https://github.com/HansKristian-Work/vkd3d-proton"
