@@ -1,7 +1,8 @@
 # Maintainer: loathingkernel <loathingkernel @at gmail .dot com>
 
 pkgname=dxvk-gplasync-mingw-git
-pkgver=2.4.1.r0.g0cf05780
+pkgver=2.4.1.r0.cf6e5ae5
+_pkgver=2.4-1
 _gplasync_sha=main
 pkgrel=1
 pkgdesc='Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine, MingW version'
@@ -14,7 +15,7 @@ conflicts=('dxvk' 'd9vk')
 options=(!lto !staticlibs)
 source=(
     "git+https://github.com/doitsujin/dxvk.git"
-    "https://gitlab.com/Ph42oN/dxvk-gplasync/-/raw/$_gplasync_sha/patches/dxvk-gplasync-master.patch"
+    "dxvk.patch::https://gitlab.com/Ph42oN/dxvk-gplasync/-/raw/$_gplasync_sha/patches/dxvk-gplasync-${_pkgver}.patch"
     "dxvk-extraopts.patch"
     "setup_dxvk.sh"
     "setup_dxvk"
@@ -29,7 +30,7 @@ prepare() {
     cd dxvk
 
     # Patch with gplasync
-    patch -p1 -i "$srcdir"/dxvk-gplasync-master.patch
+    patch -p1 -i "$srcdir"/dxvk.patch
 
     # Explicitly set origin URL for submodules using relative paths
     git remote set-url origin https://github.com/doitsujin/dxvk.git
@@ -117,7 +118,7 @@ package() {
 }
 
 sha256sums=('SKIP'
-            'SKIP'
+            '2f80b7d7e60bfbea9ecc28ddd1e5409d70817eb13d9858a4032b900026a7ada9'
             'bcc15521e4c7f966a0192a1dabb7fb4935b33db39344ab5b861f9d81486f1362'
             '9055513a311ca245e01002f7e7057e0d678a59a216f10bfa11c8b42dd115081e'
             'c1f6a18b03d1612b60f8081428f00cfac5e66315fe9d42719f01cf5564deeeff')
