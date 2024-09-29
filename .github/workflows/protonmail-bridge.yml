@@ -1,0 +1,19 @@
+name: protonmail-bridge
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+     - master
+    paths:
+     - public/protonmail-bridge/.SRCINFO
+
+jobs:
+  repository:
+    strategy:
+      matrix:
+        repository: [public, personal]
+    uses: ./.github/workflows/job_pkgrepo.yml
+    with:
+      pkgdir: local/protonmail-bridge
+      repository: ${{ matrix.repository }}
