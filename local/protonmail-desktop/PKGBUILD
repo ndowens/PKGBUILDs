@@ -3,7 +3,7 @@
 pkgname=protonmail-desktop
 pkgver=1.2.1
 #pkgver=${_pkgver//-/.}
-pkgrel=1
+pkgrel=1.1
 pkgdesc="Proton official desktop application for Proton Mail and Proton Calendar"
 arch=('x86_64')
 url="https://proton.me"
