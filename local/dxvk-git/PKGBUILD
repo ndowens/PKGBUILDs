@@ -83,12 +83,13 @@ prepare() {
 
 build() {
     meson setup dxvk "build/x64" \
-    #    --cross-file dxvk/build-win64.txt \
+        --cross-file dxvk/build-win64.txt \
         --prefix "/usr/share/dxvk/x64" \
         --bindir "" --libdir "" \
         --buildtype "plain" \
         --force-fallback-for=libdisplay-info \
         --strip
+        -D enable_d3d9=false
     ninja -C "build/x64" -v
 
 }
