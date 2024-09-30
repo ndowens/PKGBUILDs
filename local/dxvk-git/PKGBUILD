@@ -88,7 +88,7 @@ build() {
         --bindir "" --libdir "" \
         --buildtype "plain" \
         #--force-fallback-for=libdisplay-info \
-        --strip -Dc_link_args="-L/usr/lib" -Dc_linker=lld \
+        --strip -Dc_link_args="-L/usr/lib -L/usr/lib/wine/x86_64-unix" -Dc_linker=lld \
 	-Dc_ld=lld -Dcpp_ld=lld
     ninja -C "build/x64" -v
 
