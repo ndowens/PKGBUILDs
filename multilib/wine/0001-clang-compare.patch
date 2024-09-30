@@ -1,0 +1,81 @@
+From 21474d1a382edc181416ca5d6b67f3317d720928 Mon Sep 17 00:00:00 2001
+From: Nathan <ndowens@artixlinux.org>
+Date: Mon, 30 Sep 2024 02:31:58 -0500
+Subject: [PATCH] clang-compare
+
+---
+ configure.ac | 51 ---------------------------------------------------
+ 1 file changed, 51 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index d729fb5..5d64424 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -1902,32 +1902,6 @@ then
+   dnl GCC can't handle large files when -Wmisleading-indentation is enabled (https://gcc.gnu.org/bugzilla/show_bug.cgi?id=89549)
+   WINE_TRY_CFLAGS([-flarge-source-files -Wmisleading-indentation],[EXTRACFLAGS="$EXTRACFLAGS -Wno-misleading-indentation"])
+ 
+-  dnl Check for 64-bit compare-and-swap
+-  AC_CACHE_CHECK([for flags needed for 64-bit compare-and-swap support], wine_cv_64bit_compare_swap,
+-      [AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#ifndef __GCC_HAVE_SYNC_COMPARE_AND_SWAP_8
+-#error no
+-#endif]])],
+-          [wine_cv_64bit_compare_swap="none needed"],
+-          [case $HOST_ARCH in
+-            i386) wine_cv_64bit_compare_swap="-march=i586" ;;
+-            arm)  wine_cv_64bit_compare_swap="-march=armv7-a" ;;
+-            *)    wine_cv_64bit_compare_swap="unknown" ;;
+-           esac
+-           if test "x$wine_cv_64bit_compare_swap" != xunknown
+-           then
+-               dnl try with the new flags
+-               CFLAGS="$CFLAGS $wine_cv_64bit_compare_swap"
+-               AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#ifndef __GCC_HAVE_SYNC_COMPARE_AND_SWAP_8
+-#error no
+-#endif]])],,[wine_cv_64bit_compare_swap="unknown"])
+-               CFLAGS=$saved_CFLAGS
+-           fi])])
+-  case "$wine_cv_64bit_compare_swap" in
+-      unknown) AC_MSG_ERROR([gcc doesn't support 64-bit compare-and-swap on this platform]) ;;
+-      "none needed") ;;
+-      *) EXTRACFLAGS="$EXTRACFLAGS $wine_cv_64bit_compare_swap" ;;
+-  esac
+-
+   dnl Determine debug info format
+   ac_debug_format_seen=""
+   for ac_flag in $CFLAGS; do
+@@ -1952,31 +1926,6 @@ then
+        WINE_TRY_CFLAGS([-Wno-format],[MSVCRTFLAGS="$MSVCRTFLAGS -Wno-format"]) ;;
+   esac
+ 
+-  case $HOST_ARCH in
+-    dnl gcc-4.6+ omits frame pointers by default, breaking some copy protections
+-    i386) WINE_TRY_CFLAGS([-fno-omit-frame-pointer],[MSVCRTFLAGS="$MSVCRTFLAGS -fno-omit-frame-pointer"]) ;;
+-    x86_64)
+-      case $host_os in
+-        dnl Mingw uses Windows 64-bit types, not Unix ones
+-        cygwin*|mingw32*) WINE_TRY_CFLAGS([-Wno-format]) ;;
+-        dnl Default to ms_abi on 64-bit
+-        *) AC_CACHE_CHECK([for working -mabi=ms], ac_cv_mabi_ms,
+-               [CFLAGS="$CFLAGS -mabi=ms"
+-                AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <stdarg.h>
+-int a(int b, ...) { __builtin_ms_va_list list; __builtin_ms_va_start(list,b); }]])],
+-                   [ac_cv_mabi_ms=yes],[ac_cv_mabi_ms=no])
+-                CFLAGS=$saved_CFLAGS])
+-           AS_VAR_IF([ac_cv_mabi_ms],[yes],
+-                     [MSVCRTFLAGS="$MSVCRTFLAGS -mabi=ms"],
+-                     [test -n "$PE_ARCHS" || AC_MSG_ERROR([The compiler doesn't support -mabi=ms. Use gcc instead of clang, or install mingw-w64.])
+-                      DLLEXT=""]) ;;
+-      esac ;;
+-    arm)
+-      WINE_TRY_CFLAGS([-Wincompatible-function-pointer-types],[EXTRACFLAGS="$EXTRACFLAGS -Wno-error=incompatible-function-pointer-types"]) ;;
+-  esac
+-
+-  CFLAGS=$saved_CFLAGS
+-
+   dnl Enable -Werror
+   if test "x$enable_werror" = "xyes"
+   then
+-- 
+2.46.2
+

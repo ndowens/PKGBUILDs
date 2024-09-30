@@ -1,0 +1,54 @@
+diff --git a/build-win64.txt b/build-win64.txt
+index 613d1929..cfa0b4b1 100644
+--- a/build-win64.txt
++++ b/build-win64.txt
+@@ -1,15 +1,20 @@
+ [binaries]
+-c = 'x86_64-w64-mingw32-gcc'
+-cpp = 'x86_64-w64-mingw32-g++'
+-ar = 'x86_64-w64-mingw32-ar'
+-strip = 'x86_64-w64-mingw32-strip'
+-widl-mingw-tools-fallback = 'x86_64-w64-mingw32-widl'
++c = 'clang'
++cpp = 'clang++'
++ar = 'llvm-ar'
++strip = 'llvm-strip'
++
++[built-in options]
++c_args=[@CARGS@]
++cpp_args=[@CXXARGS@]
++c_link_args = [@LDARGS@]
++cpp_link_args = [@LDARGS@]
+ 
+ [properties]
+ needs_exe_wrapper = true
+ 
+ [host_machine]
+-system = 'windows'
++system = 'linux'
+ cpu_family = 'x86_64'
+ cpu = 'x86_64'
+ endian = 'little'
+diff --git a/meson.build b/meson.build
+index be1028fe..81a9e03d 100644
+--- a/meson.build
++++ b/meson.build
+@@ -130,13 +130,13 @@ if cpu_family == 'x86'
+   endif
+ endif
+ 
+-if not vkd3d_is_msvc
++#if not vkd3d_is_msvc
+   # We need to set the section alignment for debug symbols to
+   # work properly as well as avoiding a memcpy from the Wine loader.
+-  if vkd3d_compiler.has_link_argument('-Wl,--file-alignment=4096')
+-    add_global_link_arguments('-Wl,--file-alignment=4096', language : [ 'c', 'cpp' ])
+-  endif
+-endif
++ # if vkd3d_compiler.has_link_argument('-Wl,--file-alignment=4096')
++ #   add_global_link_arguments('-Wl,--file-alignment=4096', language : [ 'c', 'cpp' ])
++ # endif
++#endif
+ 
+ if vkd3d_platform == 'windows'
+   if vkd3d_compiler.has_link_argument('-static')

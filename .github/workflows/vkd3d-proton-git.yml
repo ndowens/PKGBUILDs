@@ -1,0 +1,20 @@
+name: vkd3d-proton-git
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+     - master
+    paths:
+     - public/vkd3d-proton-git/.SRCINFO
+
+jobs:
+  repository:
+    strategy:
+      matrix:
+        repository: [personal]
+    uses: ./.github/workflows/job_pkgrepo.yml
+    with:
+      pkgdir: public/vkd3d-proton-git
+      repository: ${{ matrix.repository }}
+      usegcc: true
