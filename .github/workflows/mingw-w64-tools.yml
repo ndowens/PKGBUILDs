@@ -13,7 +13,7 @@ jobs:
     uses: ./.github/workflows/job_pkgbuild.yml
     with:
       pkgdir: aur/mingw-w64-tools
-      pacman_conf: .github/conf/_pacman.conf
-      makepkg_conf: .github/conf/_makepkg.conf
+      pacman_conf: .github/conf/personal_pacman.conf
+      makepkg_conf: .github/conf/personal_makepkg.conf
       makepkg_args: --skippgpcheck
       release_tag: ndowens-personal

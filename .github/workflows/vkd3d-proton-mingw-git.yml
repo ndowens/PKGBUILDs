@@ -8,14 +8,14 @@ on:
     branches:
      - master
     paths:
-     - /vkd3d-proton-mingw-git/.SRCINFO
+     - public/vkd3d-proton-mingw-git/.SRCINFO
 
 jobs:
   repository:
     strategy:
       matrix:
-        repository: [, personal]
+        repository: [personal]
     uses: ./.github/workflows/job_pkgrepo.yml
     with:
-      pkgdir: /vkd3d-proton-mingw-git
+      pkgdir: public/vkd3d-proton-mingw-git
       repository: ${{ matrix.repository }}
