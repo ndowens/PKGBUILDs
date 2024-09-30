@@ -23,7 +23,7 @@ jobs:
   repository:
     strategy:
       matrix:
-        repository: [public]
+        repository: []
     uses: ./.github/workflows/job_pkgrepo.yml
     with:
       pkgdir: aur/ncurses5-compat-libs

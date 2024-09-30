@@ -9,7 +9,7 @@ on:
       repository:
         required: false
         type: string
-        default: "public"
+        default: ""
       pkgbuild:
         required: false
         type: string

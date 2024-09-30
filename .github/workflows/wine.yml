@@ -24,9 +24,6 @@ jobs:
     strategy:
       matrix:
         include:
-          - repository: public
-            pkgbuild: PKGBUILD
-            multilib: true
           - repository: personal
             pkgbuild: PKGBUILD
             multilib: false

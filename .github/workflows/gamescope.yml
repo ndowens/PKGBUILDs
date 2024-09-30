@@ -23,7 +23,7 @@ jobs:
   repository:
     strategy:
       matrix:
-        repository: [public, personal]
+        repository: [personal]
     uses: ./.github/workflows/job_pkgrepo.yml
     with:
       pkgdir: extra/gamescope

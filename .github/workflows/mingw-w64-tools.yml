@@ -9,11 +9,11 @@ on:
      - aur/mingw-w64-tools/.SRCINFO
 
 jobs:
-  public:
+  :
     uses: ./.github/workflows/job_pkgbuild.yml
     with:
       pkgdir: aur/mingw-w64-tools
-      pacman_conf: .github/conf/public_pacman.conf
-      makepkg_conf: .github/conf/public_makepkg.conf
+      pacman_conf: .github/conf/_pacman.conf
+      makepkg_conf: .github/conf/_makepkg.conf
       makepkg_args: --skippgpcheck
-      release_tag: loathk-public
+      release_tag: ndowens-personal

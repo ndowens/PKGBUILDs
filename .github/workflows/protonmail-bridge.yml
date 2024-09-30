@@ -12,8 +12,8 @@ jobs:
   repository:
     strategy:
       matrix:
-        repository: [public, personal]
+        repository: [personal]
     uses: ./.github/workflows/job_pkgrepo.yml
     with:
-      pkgdir: local/protonmail-bridge
+      pkgdir: public/protonmail-bridge
       repository: ${{ matrix.repository }}

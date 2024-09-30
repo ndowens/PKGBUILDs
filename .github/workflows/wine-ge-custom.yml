@@ -17,7 +17,6 @@ on:
     branches:
      - master
     paths:
-     - public/wine-ge-custom/.SRCINFO
      - local/wine-ge-custom/.SRCINFO
 
 jobs:
@@ -25,10 +24,6 @@ jobs:
     strategy:
       matrix:
         include:
-          - repository: public
-            pkgdir: public/wine-ge-custom
-            pkgbuild: PKGBUILD
-            multilib: true
           - repository: personal
             pkgdir: local/wine-ge-custom
             pkgbuild: PKGBUILD
