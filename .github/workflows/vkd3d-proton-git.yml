@@ -17,4 +17,3 @@ jobs:
     with:
       pkgdir: public/vkd3d-proton-git
       repository: ${{ matrix.repository }}
-      usegcc: true
