@@ -67,7 +67,7 @@ pacman-key --populate archlinux
 pacman-key -r 349BC7808577C592
 
 pacman -Syu --noconfirm --needed base base-devel
-pacman -Syu --noconfirm --needed ccache ldd
+pacman -Syu --noconfirm --needed ccache llvm
 if [ "$INPUT_USEGCC" == false ]; then
 	pacman -S clang libc++ lld --noconfirm
 fi
