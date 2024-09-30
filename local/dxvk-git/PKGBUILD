@@ -7,7 +7,7 @@ pkgdesc='Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine, 
 arch=('x86_64')
 url="https://github.com/doitsujin/dxvk"
 license=('zlib/libpng')
-makedepends=('ninja' 'meson>=0.43' 'glslang' 'git' 'wine-staging')
+makedepends=('ninja' 'meson>=0.43' 'glslang' 'git')
 provides=('dxvk' 'd9vk' "dxvk=$pkgver")
 conflicts=('dxvk' 'd9vk')
 options=(!lto !staticlibs)
@@ -88,7 +88,8 @@ build() {
         --bindir "" --libdir "" \
         --buildtype "plain" \
         #--force-fallback-for=libdisplay-info \
-        --strip
+        --strip -Dc_link_args="-L/usr/lib" -Dc_linker=lld \
+	-Dc_ld=lld -Dcpp_ld=lld
     ninja -C "build/x64" -v
 
 }
