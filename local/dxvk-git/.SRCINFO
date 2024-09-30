@@ -9,8 +9,7 @@ pkgbase = dxvk-git
 	makedepends = meson>=0.43
 	makedepends = glslang
 	makedepends = git
-	makedepends = mingw-w64-gcc
-	makedepends = wine
+	makedepends = wine-staging
 	provides = dxvk
 	provides = d9vk
 	provides = dxvk=2.4.1.r75.gae3a9f59
