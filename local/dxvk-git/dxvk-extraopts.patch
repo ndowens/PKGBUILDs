@@ -16,10 +16,10 @@ index 40e9d47d..5f2d2f44 100644
  needs_exe_wrapper = true
  
 diff --git a/build-win64.txt b/build-win64.txt
-index 8eb1b29d..c2a78c52 100644
+index 8eb1b29d..d397e162 100644
 --- a/build-win64.txt
 +++ b/build-win64.txt
-@@ -1,15 +1,21 @@
+@@ -1,15 +1,22 @@
  [binaries]
 -c = 'x86_64-w64-mingw32-gcc'
 -cpp = 'x86_64-w64-mingw32-g++'
@@ -31,6 +31,7 @@ index 8eb1b29d..c2a78c52 100644
 +ar = 'llvm-ar'
 +strip = 'llvm-strip'
 +windres = 'llvm-windres'
++pkg-config = 'pkg-config'
 +
 +[built-in options]
 +c_args=[@CARGS@]

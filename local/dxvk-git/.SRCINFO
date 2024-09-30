@@ -12,7 +12,7 @@ pkgbase = dxvk-git
 	makedepends = wine
 	makedepends = sdl2
 	makedepends = glfw
-	makedepends = cmake
+	makedepends = pkgconf
 	provides = dxvk
 	provides = d9vk
 	provides = dxvk=2.4.1.r95.ge83446f5
@@ -25,7 +25,7 @@ pkgbase = dxvk-git
 	source = setup_dxvk.sh
 	source = setup_dxvk
 	sha256sums = SKIP
-	sha256sums = 975404e7b3f2c7a26eb15f70e3ee5abcc1f9c15f333330da4cd018832f45264d
+	sha256sums = 1b1cd04f73a2c0caba42d5d5abfe4e40df687c6dbd09718a370deae8c9964f39
 	sha256sums = 9055513a311ca245e01002f7e7057e0d678a59a216f10bfa11c8b42dd115081e
 	sha256sums = c1f6a18b03d1612b60f8081428f00cfac5e66315fe9d42719f01cf5564deeeff
 
