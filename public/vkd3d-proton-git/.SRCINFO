@@ -10,6 +10,7 @@ pkgbase = vkd3d-proton-git
 	makedepends = glslang
 	makedepends = git
 	makedepends = glibc
+	makedepends = wine
 	provides = vkd3d-proton
 	provides = d3d12.dll
 	provides = vkd3d-proton=2.13.r138.gea251471
@@ -22,7 +23,7 @@ pkgbase = vkd3d-proton-git
 	source = setup_vkd3d_proton.sh
 	source = setup_vkd3d_proton
 	sha256sums = SKIP
-	sha256sums = 8300e498fe2225f052065ddeba16814e5c36c1141de3cb466f7412f3fea9bc49
+	sha256sums = 2f070e869cd76153fe5bc44daf9889857f2b2c8d8aa41c409f95ffac434a54f8
 	sha256sums = 5a72af2395f7bc700d566add343b8742ebd6facc0d682f1386be44cce1d19c5b
 	sha256sums = 67815eed9d47bbf610e23c6a1e4954c11371886c2ca73555dd9f1d6fbebb1323
 

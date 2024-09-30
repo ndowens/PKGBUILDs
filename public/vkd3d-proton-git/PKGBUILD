@@ -7,7 +7,7 @@ pkgdesc='Fork of VKD3D. Development branches for Protons Direct3D 12 implementat
 arch=('x86_64')
 url="https://github.com/HansKristian-Work/vkd3d-proton"
 license=('LGPL-2.1')
-makedepends=('ninja' 'meson>=0.43' 'glslang' 'git' 'glibc')
+makedepends=('ninja' 'meson>=0.43' 'glslang' 'git' 'glibc' 'wine')
 provides=('vkd3d-proton' 'd3d12.dll' "vkd3d-proton=$pkgver")
 conflicts=('vkd3d-proton' 'd3d12.dll')
 options=(!lto !staticlibs)
@@ -93,6 +93,6 @@ package() {
 }
 
 sha256sums=('SKIP'
-            '8300e498fe2225f052065ddeba16814e5c36c1141de3cb466f7412f3fea9bc49'
+            '2f070e869cd76153fe5bc44daf9889857f2b2c8d8aa41c409f95ffac434a54f8'
             '5a72af2395f7bc700d566add343b8742ebd6facc0d682f1386be44cce1d19c5b'
             '67815eed9d47bbf610e23c6a1e4954c11371886c2ca73555dd9f1d6fbebb1323')
