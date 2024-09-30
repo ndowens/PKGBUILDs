@@ -49,7 +49,7 @@ prepare() {
 
     CFLAGS="-O3 -march=$march -mtune=$mtune -pipe"
     CXXFLAGS="-O3 -march=$march -mtune=$mtune -pipe"
-    LDFLAGS="-Wl,-O1,--sort-common,--as-needed"
+    LDFLAGS="-Wl,-O1,--sort-common,--as-needed -L/usr/lib/wine/x86_64-unix/"
 
     # These flags are taken from Proton
     CFLAGS+=" -mfpmath=sse -fwrapv -fno-strict-aliasing"
