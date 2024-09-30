@@ -1,13 +1,13 @@
 # Maintainer: loathingkernel <loathingkernel @at gmail .dot com>
 
 pkgname=dxvk-git
-pkgver=2.4.1.r75.gae3a9f59
+pkgver=2.4.1.r95.ge83446f5
 pkgrel=1
 pkgdesc='Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine, MingW version'
 arch=('x86_64')
 url="https://github.com/doitsujin/dxvk"
 license=('zlib/libpng')
-makedepends=('ninja' 'meson>=0.43' 'glslang' 'git' 'wine')
+makedepends=('ninja' 'meson>=0.43' 'glslang' 'git' 'wine' 'sdl2' 'glfw' 'cmake')
 provides=('dxvk' 'd9vk' "dxvk=$pkgver")
 conflicts=('dxvk' 'd9vk')
 options=(!lto !staticlibs)
@@ -16,7 +16,6 @@ source=(
     "dxvk-extraopts.patch"
     "setup_dxvk.sh"
     "setup_dxvk"
-    "clang.patch"
 )
 
 pkgver() {
@@ -26,7 +25,6 @@ pkgver() {
 
 prepare() {
     cd dxvk
-    patch -Np1 -i ../clang.patch
     patch -p1 -i "$srcdir"/dxvk-extraopts.patch
 
     # Explicitly set origin URL for submodules using relative paths
@@ -87,8 +85,8 @@ build() {
         --prefix "/usr/share/dxvk/x64" \
         --bindir "" --libdir "" \
         --buildtype "plain" \
-        #--force-fallback-for=libdisplay-info \
-        --strip -Dc_link_args="-L/usr/lib -L/usr/lib/wine/x86_64-unix" -Dc_linker=lld \
+        --force-fallback-for=libdisplay-info \
+        --strip -Dc_link_args="-L/usr/lib -L/usr/lib32/wine/i386-unix/" -Dc_linker=lld \
 	-Dc_ld=lld -Dcpp_ld=lld
     ninja -C "build/x64" -v
 
@@ -106,7 +104,6 @@ package() {
 }
 
 sha256sums=('SKIP'
-            'bcc15521e4c7f966a0192a1dabb7fb4935b33db39344ab5b861f9d81486f1362'
+            '975404e7b3f2c7a26eb15f70e3ee5abcc1f9c15f333330da4cd018832f45264d'
             '9055513a311ca245e01002f7e7057e0d678a59a216f10bfa11c8b42dd115081e'
-            'c1f6a18b03d1612b60f8081428f00cfac5e66315fe9d42719f01cf5564deeeff'
-            'f28c74a462ee07eca8f2ec332fe0b70399e4d8199e0c8c9d9b620d691a7a4f2f')
+            'c1f6a18b03d1612b60f8081428f00cfac5e66315fe9d42719f01cf5564deeeff')
