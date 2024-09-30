@@ -15,6 +15,7 @@ pkgbase = dxvk-mingw-clang-git
 	provides = dxvk=2.4.1.r97.g90b036f5
 	conflicts = dxvk
 	conflicts = d9vk
+	conflicts = dxvk-git
 	options = !lto
 	options = !staticlibs
 	source = git+https://github.com/doitsujin/dxvk.git
@@ -22,7 +23,7 @@ pkgbase = dxvk-mingw-clang-git
 	source = setup_dxvk.sh
 	source = setup_dxvk
 	sha256sums = SKIP
-	sha256sums = 6028ff09bb61bd0f13b6ea1aeb0a9b7890c1065837fcdb860936509ce7d8b986
+	sha256sums = 453a08e4da4375554bbfd67c7b150995f8377425517a0d2e945b4e15b2a81d18
 	sha256sums = 9055513a311ca245e01002f7e7057e0d678a59a216f10bfa11c8b42dd115081e
 	sha256sums = c1f6a18b03d1612b60f8081428f00cfac5e66315fe9d42719f01cf5564deeeff
 
