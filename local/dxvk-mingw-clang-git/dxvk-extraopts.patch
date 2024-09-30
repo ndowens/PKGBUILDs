@@ -4,13 +4,13 @@ index 40e9d47d..eb7d396a 100644
 +++ b/build-win32.txt
 @@ -1,9 +1,9 @@
  [binaries]
--c = 'i686-w64-mingw32-gcc'
+-c = 'i686-w64-mingw32-clang'
 -cpp = 'i686-w64-mingw32-g++'
 -ar = 'i686-w64-mingw32-ar'
 -strip = 'i686-w64-mingw32-strip'
 -windres = 'i686-w64-mingw32-windres'
-+c = '/usr/mingw-clang/usr/bin/i686-w64-mingw32-gcc'
-+cpp = '/usr/mingw-clang/usr/bin/i686-w64-mingw32-g++'
++c = '/usr/mingw-clang/usr/bin/i686-w64-mingw32-clang'
++cpp = '/usr/mingw-clang/usr/bin/i686-w64-mingw32-clang++'
 +ar = '/usr/mingw-clang/usr/bin/i686-w64-mingw32-ar'
 +strip = '/usr/mingw-clang/usr/bin/i686-w64-mingw32-strip'
 +windres = '/usr/mingw-clang/usr/bin/i686-w64-mingw32-windres'
@@ -23,13 +23,13 @@ index 8eb1b29d..f7ddf452 100644
 +++ b/build-win64.txt
 @@ -1,15 +1,15 @@
  [binaries]
--c = 'x86_64-w64-mingw32-gcc'
+-c = 'x86_64-w64-mingw32-clang'
 -cpp = 'x86_64-w64-mingw32-g++'
 -ar = 'x86_64-w64-mingw32-ar'
 -strip = 'x86_64-w64-mingw32-strip'
 -windres = 'x86_64-w64-mingw32-windres'
-+c = '/usr/mingw-clang/usr/bin/x86_64-w64-mingw32-gcc'
-+cpp = '/usr/mingw-clang/usr/bin/x86_64-w64-mingw32-g++'
++c = '/usr/mingw-clang/usr/bin/x86_64-w64-mingw32-clang'
++cpp = '/usr/mingw-clang/usr/bin/x86_64-w64-mingw32-clang++'
 +ar = '/usr/mingw-clang/usr/bin/x86_64-w64-mingw32-ar'
 +strip = '/usr/mingw-clang/usr/bin/x86_64-w64-mingw32-strip'
 +windres = '/usr/mingw-clang/usr/bin/x86_64-w64-mingw32-windres'
