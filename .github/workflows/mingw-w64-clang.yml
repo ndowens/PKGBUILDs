@@ -1,0 +1,19 @@
+name: mingw-64-clang
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+     - master
+    paths:
+     - local/mingw-w64-clang/.SRCINFO
+
+jobs:
+  repository:
+    strategy:
+      matrix:
+        repository: [personal]
+    uses: ./.github/workflows/job_pkgrepo.yml
+    with:
+      pkgdir: local/mingw-w64-clang
+      repository: ${{ matrix.repository }}

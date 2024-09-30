@@ -1,0 +1,17 @@
+pkgbase = mingw-w64-clang
+	pkgdesc = MinGW-w64 clang
+	pkgver = 12.0.0
+	pkgrel = 1
+	url = http://mingw-w64.sourceforge.net
+	arch = x86_64
+	groups = mingw-w64
+	license = GPL3
+	license = LGPL2
+	depends = glibc
+	options = !libtool
+	options = !emptydirs
+	source = https://github.com/mstorsjo/llvm-mingw/releases/download/20240917/llvm-mingw-20240917-msvcrt-ubuntu-20.04-x86_64.tar.xz
+	validpgpkeys = CAF5641F74F7DFBA88AE205693BDB53CD4EBC740
+	sha256sums = 068da5a4cf8a8764e9ed61287b0ea6b426b92011f3aefa0afcfa6ac712e266af
+
+pkgname = mingw-w64-clang
