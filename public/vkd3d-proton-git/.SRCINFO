@@ -22,7 +22,7 @@ pkgbase = vkd3d-proton-git
 	source = setup_vkd3d_proton.sh
 	source = setup_vkd3d_proton
 	sha256sums = SKIP
-	sha256sums = a55e2c0823f23bf82d2f88cbca699920f1065c81950cd9ddf3dedf393be24d8c
+	sha256sums = 8300e498fe2225f052065ddeba16814e5c36c1141de3cb466f7412f3fea9bc49
 	sha256sums = 5a72af2395f7bc700d566add343b8742ebd6facc0d682f1386be44cce1d19c5b
 	sha256sums = 67815eed9d47bbf610e23c6a1e4954c11371886c2ca73555dd9f1d6fbebb1323
 
