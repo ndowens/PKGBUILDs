@@ -9,7 +9,6 @@ on:
      - aur/mingw-w64-tools/.SRCINFO
 
 jobs:
-  :
     uses: ./.github/workflows/job_pkgbuild.yml
     with:
       pkgdir: aur/mingw-w64-tools
