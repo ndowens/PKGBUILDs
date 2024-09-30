@@ -9,7 +9,6 @@ pkgbase = dxvk-mingw-clang-git
 	makedepends = meson>=0.43
 	makedepends = glslang
 	makedepends = git
-	makedepends = mingw-w64-x86_64-clang
 	makedepends = mingw-w64-clang
 	provides = dxvk
 	provides = d9vk
