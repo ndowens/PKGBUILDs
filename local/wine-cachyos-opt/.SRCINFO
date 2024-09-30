@@ -1,9 +1,9 @@
-pkgbase = wine-ge-custom
-	pkgdesc = A compatibility layer for running Windows programs - GloriousEggroll branch
-	pkgver = GE.Proton9.15
+pkgbase = wine-cachyos-opt
+	pkgdesc = A compatibility layer for running Windows programs, with extra CachyOS flavor (installs under /opt)
+	pkgver = 9.0.20240928
 	pkgrel = 1
-	epoch = 1
-	url = https://github.com/GloriousEggroll/wine-ge-custom
+	epoch = 2
+	url = https://github.com/CachyOS/wine-cachyos
 	install = wine.install
 	arch = x86_64
 	arch = x86_64_v3
@@ -117,22 +117,17 @@ pkgbase = wine-ge-custom
 	optdepends = cups
 	optdepends = samba
 	optdepends = dosbox
-	provides = wine=9.0
-	conflicts = wine
+	optdepends = wine
 	options = !staticlibs
 	options = !lto
 	options = !debug
-	source = wine-ge-custom::git+https://github.com/loathingKernel/wine-ge-custom.git#tag=GE-Proton9-15
+	source = wine-cachyos::git+https://github.com/CachyOS/wine-cachyos.git#tag=cachyos-wine-9.0-20240928
 	source = 30-win32-aliases.conf
 	source = wine-binfmt.conf
-	source = wine-wmclass.patch
-	source = wine-isolate_home.patch
 	validpgpkeys = 5AC1A08B03BD7A313E0A955AF5E6E9EEB9461DD7
 	validpgpkeys = DA23579A74D4AD9AF9D3F945CEFAC8EAAF17519D
-	sha512sums = 8a03a83e10d0ff9ea53629fa15e2b7eec4049c109f5f77b9e90d2f528c141d7246a2065fe9487dc7bde1e6e111b1429ba7435bc860c76d3e1a46ab03fd21008b
-	sha512sums = 6e54ece7ec7022b3c9d94ad64bdf1017338da16c618966e8baf398e6f18f80f7b0576edf1d1da47ed77b96d577e4cbb2bb0156b0b11c183a0accf22654b0a2bb
-	sha512sums = bdde7ae015d8a98ba55e84b86dc05aca1d4f8de85be7e4bd6187054bfe4ac83b5a20538945b63fb073caab78022141e9545685e4e3698c97ff173cf30859e285
-	sha512sums = 30437d8ee92c5741fa50a7fe346ccfc48ba809dad0d740903a05a67781d23ea38a5094038a070a253e3fdd8046783b46a5420df6361bdd30cb229d3d88107569
-	sha512sums = 3dcdbd523fcbe79b9e9e9b026b9d0a5edf296514c7b48bd465d2dc05a8ca08e23ba8817e2de08edfe52286a2a2f81db42b65f71254cabe496752b9d45131d282
+	b2sums = 1f656b9ec4460ed7154a6f2be32d92e5f5658d7fc62e319b2c9f94805d8e9bc85718139821c4e60693673ee12662fb6dd5dc6bee9d4bd631b4df05a8cb42c26a
+	b2sums = 45db34fb35a679dc191b4119603eba37b8008326bd4f7d6bd422fbbb2a74b675bdbc9f0cc6995ed0c564cf088b7ecd9fbe2d06d42ff8a4464828f3c4f188075b
+	b2sums = e9de76a32493c601ab32bde28a2c8f8aded12978057159dd9bf35eefbf82f2389a4d5e30170218956101331cf3e7452ae82ad0db6aad623651b0cc2174a61588
 
-pkgname = wine-ge-custom
+pkgname = wine-cachyos-opt
