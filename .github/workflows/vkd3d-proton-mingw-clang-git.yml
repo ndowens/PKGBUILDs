@@ -1,0 +1,21 @@
+name: vkd3d-proton-mingw-clang-git
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 6 */3 * *'
+  push:
+    branches:
+     - master
+    paths:
+     - local/vkd3d-proton-mingw-clang-git/.SRCINFO
+
+jobs:
+  repository:
+    strategy:
+      matrix:
+        repository: [personal]
+    uses: ./.github/workflows/job_pkgrepo.yml
+    with:
+      pkgdir: local/vkd3d-proton-mingw-clang-git
+      repository: ${{ matrix.repository }}

@@ -1,6 +1,6 @@
-# Maintainer: loathingkernel <loathingkernel @at gmail .dot com>
+# Maintainer: Nathan <ndowens @ artixlinux .dot org>
 
-pkgname=vkd3d-proton-mingw-git
+pkgname=vkd3d-proton-mingw-clang-git
 pkgver=2.13.r144.g7856e20c
 pkgrel=1
 pkgdesc='Fork of VKD3D. Development branches for Protons Direct3D 12 implementation'
