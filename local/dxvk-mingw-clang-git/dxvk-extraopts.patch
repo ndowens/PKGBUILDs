@@ -9,11 +9,11 @@ index 40e9d47d..eb7d396a 100644
 -ar = 'i686-w64-mingw32-ar'
 -strip = 'i686-w64-mingw32-strip'
 -windres = 'i686-w64-mingw32-windres'
-+c = '/usr/mingw-clang/usr/bin/i686-w64-mingw32-clang'
-+cpp = '/usr/mingw-clang/usr/bin/i686-w64-mingw32-clang++'
-+ar = '/usr/mingw-clang/usr/bin/i686-w64-mingw32-ar'
-+strip = '/usr/mingw-clang/usr/bin/i686-w64-mingw32-strip'
-+windres = '/usr/mingw-clang/usr/bin/i686-w64-mingw32-windres'
++c = 'i686-w64-mingw32-clang'
++cpp = 'i686-w64-mingw32-clang++'
++ar = 'i686-w64-mingw32-ar'
++strip = 'i686-w64-mingw32-strip'
++windres = 'i686-w64-mingw32-windres'
  
  [properties]
  needs_exe_wrapper = true
@@ -28,11 +28,11 @@ index 8eb1b29d..f7ddf452 100644
 -ar = 'x86_64-w64-mingw32-ar'
 -strip = 'x86_64-w64-mingw32-strip'
 -windres = 'x86_64-w64-mingw32-windres'
-+c = '/usr/mingw-clang/usr/bin/x86_64-w64-mingw32-clang'
-+cpp = '/usr/mingw-clang/usr/bin/x86_64-w64-mingw32-clang++'
-+ar = '/usr/mingw-clang/usr/bin/x86_64-w64-mingw32-ar'
-+strip = '/usr/mingw-clang/usr/bin/x86_64-w64-mingw32-strip'
-+windres = '/usr/mingw-clang/usr/bin/x86_64-w64-mingw32-windres'
++c = 'x86_64-w64-mingw32-clang'
++cpp = 'x86_64-w64-mingw32-clang++'
++ar = 'x86_64-w64-mingw32-ar'
++strip = 'x86_64-w64-mingw32-strip'
++windres = 'x86_64-w64-mingw32-windres'
  
  [properties]
  needs_exe_wrapper = true

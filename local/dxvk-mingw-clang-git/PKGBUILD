@@ -60,6 +60,7 @@ prepare() {
     #CXXFLAGS+=" -mno-avx2 -mno-avx"
 
     export CFLAGS CXXFLAGS LDFLAGS
+    export PATH="/usr/mingw-clang:$PATH"    
 
     local cross_ldflags="$LDFLAGS"
 
@@ -111,6 +112,6 @@ package() {
 }
 
 sha256sums=('SKIP'
-            'cc39d808fdae8bff8e2a23d2e650b7acd4fdee371ee7ea1d30b85893c9a62f92'
+            '5c7ed8be6d61017f4a4bafc868557ee81ee83788c89cee30ca4def8ea2060f80'
             '9055513a311ca245e01002f7e7057e0d678a59a216f10bfa11c8b42dd115081e'
             'c1f6a18b03d1612b60f8081428f00cfac5e66315fe9d42719f01cf5564deeeff')
