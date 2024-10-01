@@ -23,7 +23,7 @@ pkgbase = dxvk-mingw-clang-git
 	source = setup_dxvk.sh
 	source = setup_dxvk
 	sha256sums = SKIP
-	sha256sums = 5c7ed8be6d61017f4a4bafc868557ee81ee83788c89cee30ca4def8ea2060f80
+	sha256sums = f02e0690f68067ffb42ddeaf1fd6ca0fee9344f85b3ee95f49a7dc278b2b1584
 	sha256sums = 9055513a311ca245e01002f7e7057e0d678a59a216f10bfa11c8b42dd115081e
 	sha256sums = c1f6a18b03d1612b60f8081428f00cfac5e66315fe9d42719f01cf5564deeeff
 
