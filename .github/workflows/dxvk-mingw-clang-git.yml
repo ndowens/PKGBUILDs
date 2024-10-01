@@ -13,12 +13,13 @@ on:
         - 'build'
         - 'remove'
         - 'skip'
+  schedule:
+        - cron:  '0 0 */3 * *'
   push:
     branches:
      - master
     paths:
      - local/dxvk-mingw-clang-git/.SRCINFO
-
 jobs:
   repository:
     strategy:
