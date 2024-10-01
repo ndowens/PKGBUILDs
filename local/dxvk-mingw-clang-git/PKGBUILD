@@ -60,7 +60,7 @@ prepare() {
     #CXXFLAGS+=" -mno-avx2 -mno-avx"
 
     export CFLAGS CXXFLAGS LDFLAGS
-    export PATH="/usr/mingw-clang:$PATH"    
+    export PATH="/usr/mingw-clang:/usr/mingw-clang/bin:$PATH"    
 
     local cross_ldflags="$LDFLAGS"
 
