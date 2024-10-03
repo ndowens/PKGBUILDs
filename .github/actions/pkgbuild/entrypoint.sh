@@ -12,7 +12,6 @@ echo "release_repo:   ${INPUT_REPORELEASETAG:-}"
 echo "namcap_disable: ${INPUT_NAMCAPDISABLE:-}"
 echo "namcap_relues:  ${INPUT_NAMCAPRULES:-}"
 echo "namcap_exclude: ${INPUT_NAMCAPEXCLUDERULES:-}"
-echo "mirrorlists: ${INPUT_MIRRORLISTS:-}"
 echo "usegcc: ${INPUT_USEGCC:-false}"
 
 FILE="$(basename "$0")"
@@ -59,9 +58,12 @@ if [ -n "${INPUT_MAKEPKGCONF:-}" ]; then
     fi
 fi
 
-for i in cachyos-mirrorlist mirrorlist-chaotic cachyos-v3-mirrorlist ; do
-	cp -v ${INPUT_MIRRORLISTS:-}/.github/conf/$i /etc/pacman.d
-done
+cat <<EOF>> /etc/pacman.conf
+[chatoic-aur]
+SigLevel = TrustAll Optional
+Server = https://us-mi-mirror.chaotic.cx/$repo/x86_64
+EOF
+
 # Update before continuing
 pacman -Syu --noconfirm
 
