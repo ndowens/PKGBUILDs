@@ -59,11 +59,19 @@ if [ -n "${INPUT_MAKEPKGCONF:-}" ]; then
 fi
 
 cat <<EOF>> /etc/pacman.conf
-[chatoic-aur]
+[chaotic-aur]
 SigLevel = TrustAll Optional
-Server = https://us-mi-mirror.chaotic.cx/$repo/x86_64
+Server = https://us-mi-mirror.chaotic.cx/chaotic-aur/x86_64
 EOF
 
+cat <<EOF>> /etc/pacman.d/cachyos-mirrorlist
+[cachyos]
+Server = https://us.cachyos.org/repo/x86_64/cachyos
+
+[cachyos-v3]
+Server = https://us.cachyos.org/repo/x86_64-v3/cachyos-v3
+
+EOF
 # Update before continuing
 pacman -Syu --noconfirm
 
