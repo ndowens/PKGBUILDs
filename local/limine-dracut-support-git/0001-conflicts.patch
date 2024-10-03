@@ -1,0 +1,200 @@
+From 42369fc2399c7da6cc08a496842180029f9831fb Mon Sep 17 00:00:00 2001
+From: Nathan <ndowens@artixlinux.org>
+Date: Wed, 2 Oct 2024 15:47:40 -0500
+Subject: [PATCH] conflicts
+
+---
+ .../usr/bin/dracut-rebuild                    |  8 --
+ .../share/libalpm/hooks/60-dracut-remove.hook | 10 ---
+ .../libalpm/hooks/90-dracut-install.hook      | 31 -------
+ .../usr/share/libalpm/scripts/dracut-install  | 83 -------------------
+ .../usr/share/libalpm/scripts/dracut-remove   | 17 ----
+ 5 files changed, 149 deletions(-)
+ delete mode 100755 install/arch-linux/limine-dracut-support/usr/bin/dracut-rebuild
+ delete mode 100644 install/arch-linux/limine-dracut-support/usr/share/libalpm/hooks/60-dracut-remove.hook
+ delete mode 100644 install/arch-linux/limine-dracut-support/usr/share/libalpm/hooks/90-dracut-install.hook
+ delete mode 100755 install/arch-linux/limine-dracut-support/usr/share/libalpm/scripts/dracut-install
+ delete mode 100755 install/arch-linux/limine-dracut-support/usr/share/libalpm/scripts/dracut-remove
+
+diff --git a/install/arch-linux/limine-dracut-support/usr/bin/dracut-rebuild b/install/arch-linux/limine-dracut-support/usr/bin/dracut-rebuild
+deleted file mode 100755
+index 1deab20..0000000
+--- a/install/arch-linux/limine-dracut-support/usr/bin/dracut-rebuild
++++ /dev/null
+@@ -1,8 +0,0 @@
+-#!/usr/bin/env bash
+-
+-if [[ $EUID -ne 0 ]]; then
+-    echo -e "\033[91m dracut-rebuild needs to be run as root.\033[0m"
+-    exit 1
+-fi
+-
+-echo rebuild | /usr/share/libalpm/scripts/dracut-install
+diff --git a/install/arch-linux/limine-dracut-support/usr/share/libalpm/hooks/60-dracut-remove.hook b/install/arch-linux/limine-dracut-support/usr/share/libalpm/hooks/60-dracut-remove.hook
+deleted file mode 100644
+index 6dd5722..0000000
+--- a/install/arch-linux/limine-dracut-support/usr/share/libalpm/hooks/60-dracut-remove.hook
++++ /dev/null
+@@ -1,10 +0,0 @@
+-[Trigger]
+-Type = Path
+-Operation = Remove
+-Target = usr/lib/modules/*/pkgbase
+-
+-[Action]
+-Description = Removing initramfs...
+-When = PreTransaction
+-Exec = /usr/share/libalpm/scripts/dracut-remove
+-NeedsTargets
+diff --git a/install/arch-linux/limine-dracut-support/usr/share/libalpm/hooks/90-dracut-install.hook b/install/arch-linux/limine-dracut-support/usr/share/libalpm/hooks/90-dracut-install.hook
+deleted file mode 100644
+index 68fb7d6..0000000
+--- a/install/arch-linux/limine-dracut-support/usr/share/libalpm/hooks/90-dracut-install.hook
++++ /dev/null
+@@ -1,31 +0,0 @@
+-[Trigger]
+-Type = Path
+-Operation = Install
+-Operation = Upgrade
+-Operation = Remove
+-Target = usr/lib/systemd/systemd
+-Target = usr/lib/firmware/*
+-Target = usr/src/*/dkms.conf
+-Target = usr/bin/cryptsetup
+-Target = usr/bin/lvm
+-
+-[Trigger]
+-Type = Path
+-Operation = Install
+-Operation = Upgrade
+-Target = usr/lib/modules/*/vmlinuz
+-Target = usr/lib/dracut/*
+-
+-[Trigger]
+-Type = Package
+-Operation = Install
+-Operation = Upgrade
+-Operation = Remove
+-Target = amd-ucode
+-Target = intel-ucode
+-
+-[Action]
+-Description = Updating initramfs...
+-When = PostTransaction
+-Exec = /usr/share/libalpm/scripts/dracut-install
+-NeedsTargets
+diff --git a/install/arch-linux/limine-dracut-support/usr/share/libalpm/scripts/dracut-install b/install/arch-linux/limine-dracut-support/usr/share/libalpm/scripts/dracut-install
+deleted file mode 100755
+index 30bda29..0000000
+--- a/install/arch-linux/limine-dracut-support/usr/share/libalpm/scripts/dracut-install
++++ /dev/null
+@@ -1,83 +0,0 @@
+-#!/usr/bin/env bash
+-
+-# Check if the system is using UEFI
+-if [ ! -d /sys/firmware/efi ]; then
+-	echo -e "\033[1;31m Not supported: The system is using BIOS.\033[0m"
+-	exit 1
+-fi
+-
+-# shellcheck disable=SC1091
+-source /etc/limine-entry-tool.conf
+-
+-if [ -z "${ESP_PATH}" ]; then
+-	if ! ESP_PATH="$(bootctl --print-esp-path)"; then
+-		echo -e "\033[1;31m Can not detect a ESP directory. Please set ESP_PATH in /etc/limine-entry-tool\033[0m"
+-		exit 1
+-	fi
+-fi
+-
+-# Check if the machine-id file exists
+-if [ -f /etc/machine-id ]; then
+-	# Read and print the machine-id
+-	MACHINE_ID=$(cat /etc/machine-id)
+-	#echo "Machine-ID: $MACHINE_ID"
+-else
+-	echo -e "\033[1;31m Error: /etc/machine-id does not exist.\033[0m"
+-	exit 1
+-fi
+-
+-all=0
+-lines=()
+-
+-while read -r line; do
+-	if [[ "${line}" != */vmlinuz ]]; then
+-		# triggers when it's a change to dracut files
+-		all=1
+-		continue
+-	fi
+-
+-	lines+=("/${line%/vmlinuz}")
+-
+-	#pkgBase="$(<"${lines[-1]}/pkgbase")"
+-	#install -Dm644 "/${line}" "/tmp/vmlinuz-${pkgBase}"
+-done
+-
+-if ((all)); then
+-	lines=(/usr/lib/modules/*)
+-fi
+-
+-for line in "${lines[@]}"; do
+-	if ! pacman -Qqo "${line}/pkgbase" &>/dev/null; then
+-		# if pkgBase does not belong to any package then skip this kernel
+-		continue
+-	fi
+-
+-	pkgBase="$(<"${line}/pkgbase")"
+-	kVer="${line##*/}"
+-	#kDirPath="${ESP_PATH}/${MACHINE_ID}/${kVer}"
+-	kDirPath="${ESP_PATH}/${MACHINE_ID}/${pkgBase}"
+-
+-	install -dm700 "/${kDirPath}"
+-	install -Dm600 "${line}/vmlinuz" "/${kDirPath}/vmlinuz-${pkgBase}"
+-
+-	if [[ "$DRACUT_FALLBACK" == "yes" ]]; then
+-		echo "Building fallback initramfs for ${pkgBase} (${kVer})"
+-		dracut --force --no-hostonly -o "network" "/${kDirPath}/initramfs-${pkgBase}-fallback" "${kVer}"
+-		#limine-entry-tool --add "${kVer}" "/${kDirPath}/initramfs-${pkgBase}-fallback" "/${kDirPath}/vmlinuz-${pkgBase}" "-fallback"
+-		limine-entry-tool --add "${pkgBase}" "/${kDirPath}/initramfs-${pkgBase}-fallback" "/${kDirPath}/vmlinuz-${pkgBase}" "-fallback"
+-	else
+-		# Remove fallback if it exists
+-		if [ -f "/${kDirPath}/initramfs-${pkgBase}-fallback" ]; then
+-			limine-entry-tool --remove-entry "${pkgBase}-fallback"
+-			rm -f "/${kDirPath}/initramfs-${pkgBase}-fallback"
+-		fi
+-	fi
+-
+-	echo "Building initramfs for ${pkgBase} (${kVer})"
+-	dracut --force --hostonly --no-hostonly-cmdline "/${kDirPath}/initramfs-${pkgBase}" "${kVer}"
+-	#limine-entry-tool --add "${kVer}" "/${kDirPath}/initramfs-${pkgBase}" "/${kDirPath}/vmlinuz-${pkgBase}"
+-	limine-entry-tool --add "${pkgBase}" "/${kDirPath}/initramfs-${pkgBase}" "/${kDirPath}/vmlinuz-${pkgBase}"
+-
+-	echo "Kernel ${pkgBase} (${kVer}) is stored in the directory: ${kDirPath}"
+-
+-done
+diff --git a/install/arch-linux/limine-dracut-support/usr/share/libalpm/scripts/dracut-remove b/install/arch-linux/limine-dracut-support/usr/share/libalpm/scripts/dracut-remove
+deleted file mode 100755
+index 8a20169..0000000
+--- a/install/arch-linux/limine-dracut-support/usr/share/libalpm/scripts/dracut-remove
++++ /dev/null
+@@ -1,17 +0,0 @@
+-#!/usr/bin/env bash
+-
+-# Check if the system is using UEFI
+-if [ ! -d /sys/firmware/efi ]; then
+-	echo -e "\033[1;31m Not supported: The system is using BIOS.\033[0m"
+-	exit 1
+-fi
+-
+-while read -r line; do
+-	if [[ "${line}" == */pkgbase ]]; then
+-		#kVer="${line%/pkgbase}"
+-		#kVer="${kVer##*/}"
+-		#limine-entry-tool --remove "${kVer}"
+-		pkgBase="$(<"${line}")"
+-		limine-entry-tool --remove "${pkgBase}"
+-	fi
+-done
+-- 
+2.46.2
+
