@@ -60,7 +60,7 @@ if [ -n "${INPUT_MAKEPKGCONF:-}" ]; then
 fi
 
 for i in cachyos-mirrorlist mirrorlist-chaotic cachyos-v3-mirrorlist ; do
-	cp -v ${INPUT_MIRRORLISTS:-}/$i /etc/pacman.d
+	cp -v ${INPUT_MIRRORLISTS:-}/.github/conf/$i /etc/pacman.d
 done
 # Update before continuing
 pacman -Syu --noconfirm
