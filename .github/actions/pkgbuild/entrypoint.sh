@@ -58,9 +58,9 @@ if [ -n "${INPUT_MAKEPKGCONF:-}" ]; then
     fi
 fi
 
-for i in cachyos-mirrorlist mirrorlist-chaotic cachyos-v3-mirrorlist ; do
-	cp -v $i /etc/pacman.d
-done
+#for i in cachyos-mirrorlist mirrorlist-chaotic cachyos-v3-mirrorlist ; do
+#	cp -v $i /etc/pacman.d
+#done
 $(pwd)
 # Update before continuing
 pacman -Syu --noconfirm
