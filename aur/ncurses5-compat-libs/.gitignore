@@ -1,6 +1,0 @@
-*.asc
-*.sig
-*.tar.*
-logs/
-pkg/
-src/
