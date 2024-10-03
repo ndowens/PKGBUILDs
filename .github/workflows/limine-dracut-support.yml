@@ -1,0 +1,21 @@
+name: limine-dracut-support-git
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+     - master
+    paths:
+     - local/limine-dracut-support-git/.SRCINFO
+  schedule:
+        - cron:  '0 0 */3 * *'
+
+jobs:
+  repository:
+    strategy:
+      matrix:
+        repository: [personal]
+    uses: ./.github/workflows/job_pkgrepo.yml
+    with:
+      pkgdir: local/limine-dracut-support-git
+      repository: ${{ matrix.repository }}
