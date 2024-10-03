@@ -8,7 +8,7 @@ pkgbase = limine-dracut-support-git
 	makedepends = git
 	makedepends = maven
 	depends = bash
-	depends = java-environment-openjdk>=17
+	depends = jdk-openjdk
 	depends = limine
 	depends = dracut-cachyos
 	depends = systemd

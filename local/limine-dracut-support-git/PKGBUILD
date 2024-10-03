@@ -11,7 +11,7 @@ source=(git+$url.git
 license=("GPL3")
 depends=(
        'bash'
-       'java-environment-openjdk>=17'
+       'jdk-openjdk'
        'limine'
        'dracut-cachyos'
        'systemd')
