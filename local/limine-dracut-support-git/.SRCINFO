@@ -10,12 +10,14 @@ pkgbase = limine-dracut-support-git
 	depends = bash
 	depends = java-environment-openjdk>=17
 	depends = limine
-	depends = dracut
+	depends = dracut-cachyos
 	depends = systemd
 	optdepends = journalctl-desktop-notification: It notifies you on Desktop when an error occurs.
 	conflicts = limine-dracut-support
 	backup = etc/limine-entry-tool.conf
 	source = git+https://gitlab.com/Zesko/limine-entry-tool.git
+	source = 0001-conflicts.patch
 	sha1sums = SKIP
+	sha1sums = 7f5aa54b7be683a5b6ed04d48fbe6048c0eeb680
 
 pkgname = limine-dracut-support-git
