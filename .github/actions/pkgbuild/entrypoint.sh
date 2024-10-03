@@ -59,7 +59,7 @@ if [ -n "${INPUT_MAKEPKGCONF:-}" ]; then
 fi
 
 for i in $PACMANCONF/cachyos-mirrorlist mirrorlist-chaotic cachyos-v3-mirrorlist ; do
-	cp -v "${INPUT_PACMANCONF}"/$i /etc/pacman.d
+	cp -v "${INPUT_PACMANCONF:-}"/$i /etc/pacman.d
 done
 
 # Update before continuing
