@@ -8,7 +8,7 @@ on:
     paths:
      - public/scx-scheds-git/.SRCINFO
   schedule:
-        - cron:  '0 0 */3 * *'
+      - cron:  '0 6 */1 * *'
 
 jobs:
   repository:
