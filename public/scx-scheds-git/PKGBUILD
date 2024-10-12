@@ -4,7 +4,7 @@
 pkgname=scx-scheds-git
 _gitname=scx
 pkgver=1.0.4.r59.g00eebaf
-pkgrel=2
+pkgrel=1
 pkgdesc='sched_ext schedulers and tools'
 url='https://github.com/sched-ext/scx'
 arch=('x86_64' 'aarch64')
@@ -27,7 +27,7 @@ makedepends=(
   rust
   cargo
 )
-source=("git+https://github.com/sched-ext/scx#branch=bpfland-next")
+source=("git+https://github.com/sched-ext/scx)
 sha256sums=('SKIP')
 options=(!lto)
 provides=("scx-scheds=$pkgver")
