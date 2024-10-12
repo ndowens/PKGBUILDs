@@ -23,7 +23,7 @@ pkgbase = scx-scheds-git
 	conflicts = scx-scheds
 	options = !lto
 	backup = etc/default/scx
-	source = git+https://github.com/sched-ext/scx
+	source = git+https://github.com/sched-ext/scx#branch=scx-fair
 	sha256sums = SKIP
 
 pkgname = scx-scheds-git
