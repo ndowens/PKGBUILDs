@@ -27,7 +27,7 @@ makedepends=(
   rust
   cargo
 )
-source=("git+https://github.com/sched-ext/scx#branch=scx-fair")
+source=("git+https://github.com/sched-ext/scx#branch=bpfland-next")
 sha256sums=('SKIP')
 options=(!lto)
 provides=("scx-scheds=$pkgver")
