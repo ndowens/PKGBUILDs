@@ -1,0 +1,21 @@
+name: limine-snapper-sync-git
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+     - master
+    paths:
+     - public/limine-snapper-sync-git/.SRCINFO
+  schedule:
+      - cron:  '0 6 */1 * *'
+
+jobs:
+  repository:
+    strategy:
+      matrix:
+        repository: [personal]
+    uses: ./.github/workflows/job_pkgrepo.yml
+    with:
+      pkgdir: public/limine-snapper-sync-git
+      repository: ${{ matrix.repository }}
