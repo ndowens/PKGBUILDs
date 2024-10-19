@@ -1,0 +1,21 @@
+name: scx-scheds-git-fair
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+     - master
+    paths:
+     - public/scx-scheds-git-fair/.SRCINFO
+  schedule:
+      - cron:  '0 6 */1 * *'
+
+jobs:
+  repository:
+    strategy:
+      matrix:
+        repository: [personal]
+    uses: ./.github/workflows/job_pkgrepo.yml
+    with:
+      pkgdir: public/scx-scheds-git-fair
+      repository: ${{ matrix.repository }}
