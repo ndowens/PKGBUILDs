@@ -1,0 +1,19 @@
+name: snap-pac-grub
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+     - master
+    paths:
+     - public/snap-pac-grub/.SRCINFO
+
+jobs:
+  repository:
+    strategy:
+      matrix:
+        repository: [personal]
+    uses: ./.github/workflows/job_pkgrepo.yml
+    with:
+      pkgdir: public/snap-pac-grub
+      repository: ${{ matrix.repository }}
