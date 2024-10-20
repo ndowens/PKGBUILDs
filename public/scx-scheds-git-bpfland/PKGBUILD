@@ -31,7 +31,7 @@ source=("git+https://github.com/sched-ext/scx#branch=bpfland-next")
 sha256sums=('SKIP')
 options=(!lto)
 provides=("scx-scheds=$pkgver")
-conflicts=("scx-scheds")
+conflicts=("scx-scheds" "scx-scheds-git" "scx-scheds-fair")
 
 _backports=(
 )

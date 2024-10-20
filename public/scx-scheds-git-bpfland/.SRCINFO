@@ -1,4 +1,4 @@
-pkgbase = scx-scheds-git
+pkgbase = scx-scheds-git-bpfland
 	pkgdesc = sched_ext schedulers and tools
 	pkgver = 1.0.4.r59.g00eebaf
 	pkgrel = 1
@@ -21,9 +21,11 @@ pkgbase = scx-scheds-git
 	depends = zlib
 	provides = scx-scheds=1.0.4.r59.g00eebaf
 	conflicts = scx-scheds
+	conflicts = scx-scheds-git
+	conflicts = scx-scheds-fair
 	options = !lto
 	backup = etc/default/scx
 	source = git+https://github.com/sched-ext/scx#branch=bpfland-next
 	sha256sums = SKIP
 
-pkgname = scx-scheds-git
+pkgname = scx-scheds-git-bpfland
