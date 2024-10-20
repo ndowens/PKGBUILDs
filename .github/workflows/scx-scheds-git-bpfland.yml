@@ -1,4 +1,4 @@
-name: scx-scheds-git
+name: scx-scheds-git-bpfland
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     branches:
      - master
     paths:
-     - public/scx-scheds-git/.SRCINFO
+     - public/scx-scheds-git-bpfland/.SRCINFO
   schedule:
       - cron:  '0 6 */1 * *'
 
@@ -17,5 +17,5 @@ jobs:
         repository: [personal]
     uses: ./.github/workflows/job_pkgrepo.yml
     with:
-      pkgdir: public/scx-scheds-git
+      pkgdir: public/scx-scheds-git-bpfland
       repository: ${{ matrix.repository }}
