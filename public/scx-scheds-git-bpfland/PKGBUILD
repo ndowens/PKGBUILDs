@@ -79,5 +79,5 @@ build() {
 
 package() {
   cd $_gitname
-  fakeroot meson install -C build --destdir "${pkgdir}"
+  fakeroot -- meson install -C build --destdir "${pkgdir}"
 }
