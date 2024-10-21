@@ -24,7 +24,7 @@ makedepends=(
   llvm-libs
   meson
   python
-  #rust
+  rust
   cargo
 )
 source=("git+https://github.com/sched-ext/scx#branch=bpfland-next")
@@ -70,13 +70,10 @@ prepare() {
  }
 
 build() {
-  RUSTUP_HOME="/home/builder"
-  CARGO_HOME="/home/builder"
-  RUSTUP_HOME=$RUSTUP_HOME CARGO_HOME=$CARGO_HOME bash -c 'curl https://sh.rustup.rs -sSf | sh | echo y'
-  export PATH=$RUSTUP_HOME/bin:$PATH:$CARGO_HOME/bin
-  export HOME=/home/builder
-  rustup default stable
-   cd $_gitname
+  cd $_gitname
+  curl https://sh.rustup.rs -sSf | RUSTUP_INIT_SKIP_PATH_CHECK=yes sh -s -- -y
+  rustup install nightly-2024-09-10
+  export PATH="~/.cargo/bin:$PATH"
   arch-meson . build -D openrc=disabled -D libbpf_a=disabled -D bpftool=disabled -D cargo_home=builder
   meson compile -C build
 }
