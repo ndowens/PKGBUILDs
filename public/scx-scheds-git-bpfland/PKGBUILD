@@ -26,6 +26,7 @@ makedepends=(
   python
   rust
   cargo
+  fakeroot
 )
 source=("git+https://github.com/sched-ext/scx#branch=bpfland-next")
 sha256sums=('SKIP')
@@ -77,5 +78,5 @@ build() {
 
 package() {
   cd $_gitname
-  meson install -C build --destdir "${pkgdir}"
+  fakeroot meson install -C build --destdir "${pkgdir}"
 }
