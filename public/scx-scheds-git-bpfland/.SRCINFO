@@ -14,7 +14,6 @@ pkgbase = scx-scheds-git-bpfland
 	makedepends = python
 	makedepends = rust
 	makedepends = cargo
-	makedepends = fakeroot
 	depends = bpf
 	depends = jq
 	depends = libbpf
