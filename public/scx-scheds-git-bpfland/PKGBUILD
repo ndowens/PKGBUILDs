@@ -67,10 +67,10 @@ prepare() {
     echo "Applying patch $src..."
     patch -Np1 < "../$src"
   done
-  rustup default stable
-}
+ }
 
 build() {
+  su builder -c rustup default stable
   cd $_gitname
   arch-meson . build -D openrc=disabled -D libbpf_a=disabled -D bpftool=disabled -D cargo_home=builder
   meson compile -C build
