@@ -83,5 +83,6 @@ build() {
 
 package() {
   cd $_gitname
+ . "/github/workspace/public/scx-scheds-git-bpfland/src/scx/builder/env"
   meson install -C build --destdir "${pkgdir}"
 }
