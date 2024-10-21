@@ -71,6 +71,7 @@ prepare() {
 }
 
 build() {
+  rustup default stable
   cd $_gitname
   arch-meson . build -D openrc=disabled -D libbpf_a=disabled -D bpftool=disabled -D cargo_home=builder
   meson compile -C build
