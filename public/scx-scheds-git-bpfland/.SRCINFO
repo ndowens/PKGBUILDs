@@ -22,7 +22,7 @@ pkgbase = scx-scheds-git-bpfland
 	provides = scx-scheds=1.0.4.r59.g00eebaf
 	conflicts = scx-scheds
 	conflicts = scx-scheds-git
-	conflicts = scx-scheds-fair
+	conflicts = scx-scheds-git-fair
 	options = !lto
 	backup = etc/default/scx
 	source = git+https://github.com/sched-ext/scx#branch=bpfland-next

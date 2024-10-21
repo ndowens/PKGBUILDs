@@ -31,7 +31,7 @@ source=("git+https://github.com/sched-ext/scx#branch=bpfland-next")
 sha256sums=('SKIP')
 options=(!lto)
 provides=("scx-scheds=$pkgver")
-conflicts=("scx-scheds" "scx-scheds-git" "scx-scheds-fair")
+conflicts=("scx-scheds" "scx-scheds-git" "scx-scheds-git-fair" )
 
 _backports=(
 )
@@ -67,22 +67,15 @@ prepare() {
     echo "Applying patch $src..."
     patch -Np1 < "../$src"
   done
- }
+}
 
 build() {
   cd $_gitname
-  export CARGO_HOME=builder
-  export RUSTUP_Home=builder
-  RUSTUP_HOME=builder CARGO_HOME=cargo curl https://sh.rustup.rs -sSf | RUSTUP_INIT_SKIP_PATH_CHECK=yes sh -s -- -y
-  rustup install nightly-2024-09-10
-  export PATH="$CARGO_HOME/bin:$PATH"
-  source "$CARGO_HOME/env"
   arch-meson . build -D openrc=disabled -D libbpf_a=disabled -D bpftool=disabled -D cargo_home=builder
   meson compile -C build
 }
 
 package() {
   cd $_gitname
- . "/github/workspace/public/scx-scheds-git-bpfland/src/scx/builder/env"
   meson install -C build --destdir "${pkgdir}"
 }
