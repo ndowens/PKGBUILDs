@@ -12,7 +12,6 @@ pkgbase = scx-scheds-git-bpfland
 	makedepends = llvm-libs
 	makedepends = meson
 	makedepends = python
-	#makedepends = rust
 	makedepends = cargo
 	depends = bpf
 	depends = jq
