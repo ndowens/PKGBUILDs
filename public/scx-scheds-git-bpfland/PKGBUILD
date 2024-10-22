@@ -46,7 +46,6 @@ pkgver() {
 
 prepare() {
  cd $_gitname
-
  local _c _l
   for _c in "${_backports[@]}"; do
     if [[ "${_c}" == *..* ]]; then _l='--reverse'; else _l='--max-count=1'; fi
@@ -70,8 +69,9 @@ prepare() {
 }
 
 build() {
-  export CARGO_HOME=/home/builder
-  export RUSTUP_HOME=/home/builder
+  mkdir build
+  export CARGO_HOME=build
+  export RUSTUP_HOME=build
   RUSTUP_HOME=$RUSTUP_HOME CARGO_HOME=$CARGO_HOME bash -c 'curl https://sh.rustup.rs -sSf | sh | echo y' 
   export PATH=$PATH:$CARGO_HOME/bin
   source "$CARGO_HOME"/env
@@ -81,8 +81,8 @@ build() {
 }
 
 package() {
-  export CARGO_HOME=/home/builder
-  export RUSTUP_HOME=/home/builder
+  export CARGO_HOME=build
+  export RUSTUP_HOME=build
   RUSTUP_HOME=$RUSTUP_HOME CARGO_HOME=$CARGO_HOME bash -c 'curl https://sh.rustup.rs -sSf | sh | y' 
   export PATH=$PATH:$CARGO_HOME/bin
   source "$CARGO_HOME"/bin
