@@ -46,6 +46,8 @@ pkgver() {
 
 prepare() {
  cd $_gitname
+ mkdir /home/builder
+ champs a+re /home/builder
 
  local _c _l
   for _c in "${_backports[@]}"; do
