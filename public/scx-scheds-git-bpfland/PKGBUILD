@@ -72,7 +72,7 @@ build() {
   mkdir build
   export CARGO_HOME=build
   export RUSTUP_HOME=build
-  RUSTUP_HOME=$RUSTUP_HOME CARGO_HOME=$CARGO_HOME bash -c 'curl https://sh.rustup.rs -sSf' |echo y | sh | echo y
+  RUSTUP_HOME=$RUSTUP_HOME CARGO_HOME=$CARGO_HOME bash -c 'curl https://sh.rustup.rs -sSf' | sh | bash -c "echo y"
    export PATH=$PATH:$CARGO_HOME/bin
   source "$CARGO_HOME"/env
   cd $_gitname
@@ -83,7 +83,7 @@ build() {
 package() {
   export CARGO_HOME=build
   export RUSTUP_HOME=build
-  RUSTUP_HOME=$RUSTUP_HOME CARGO_HOME=$CARGO_HOME bash -c 'curl https://sh.rustup.rs -sSf' | echo y | sh | echo y
+  RUSTUP_HOME=$RUSTUP_HOME CARGO_HOME=$CARGO_HOME bash -c 'curl https://sh.rustup.rs -sSf' | echo y | sh | bash -c "echo y"
   export PATH=$PATH:$CARGO_HOME/bin
   source "$CARGO_HOME"/bin
   cd $_gitname
