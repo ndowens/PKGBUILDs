@@ -73,7 +73,7 @@ build() {
   export CARGO_HOME=build
   export RUSTUP_HOME=build
   #USTUP_HOME=$RUSTUP_HOME CARGO_HOME=$CARGO_HOME bash -c 'curl https://sh.rustup.rs -sSf' | sh -s -- -y
-  rustup default stable
+  CARGO_HOME=$CARGO_HOME RUSTUP_HOME=$RUSTUP_HOME rustup default stable
   export PATH=$CARGO_HOME/bin:$PATH
   . "/github/workspace/public/scx-scheds-git-bpfland/src/build/env"
   cd $_gitname
