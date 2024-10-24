@@ -75,7 +75,7 @@ build() {
   #USTUP_HOME=$RUSTUP_HOME CARGO_HOME=$CARGO_HOME bash -c 'curl https://sh.rustup.rs -sSf' | sh -s -- -y
   CARGO_HOME=$CARGO_HOME RUSTUP_HOME=$RUSTUP_HOME rustup default stable
   export PATH=$CARGO_HOME/bin:$PATH
-  . "/github/workspace/public/scx-scheds-git-bpfland/src/build/env"
+  #. "/github/workspace/public/scx-scheds-git-bpfland/src/build/env"
   cd $_gitname
   arch-meson . build -D openrc=disabled -D libbpf_a=disabled -D bpftool=disabled -D cargo_home=builder
   meson compile -C build
@@ -86,7 +86,7 @@ package() {
   export RUSTUP_HOME=build
   #RUSTUP_HOME=$RUSTUP_HOME CARGO_HOME=$CARGO_HOME bash -c 'curl https://sh.rustup.rs -sSf' | sh -s -- -y
   export PATH=$CARGO_HOME/bin:$PATH
-  . "/github/workspace/public/scx-scheds-git-bpfland/src/build/env"
+  #. "/github/workspace/public/scx-scheds-git-bpfland/src/build/env"
   cd $_gitname
   meson install -C build --destdir "${pkgdir}"
 }
