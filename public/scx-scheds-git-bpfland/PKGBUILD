@@ -24,8 +24,8 @@ makedepends=(
   llvm-libs
   meson
   python
-  #rust
-  #cargo
+  rust
+  cargo
 )
 source=("git+https://github.com/sched-ext/scx#branch=bpfland-next")
 sha256sums=('SKIP')
@@ -72,7 +72,8 @@ build() {
   mkdir build
   export CARGO_HOME=build
   export RUSTUP_HOME=build
-  RUSTUP_HOME=$RUSTUP_HOME CARGO_HOME=$CARGO_HOME bash -c 'curl https://sh.rustup.rs -sSf' | sh -s -- -y
+  #USTUP_HOME=$RUSTUP_HOME CARGO_HOME=$CARGO_HOME bash -c 'curl https://sh.rustup.rs -sSf' | sh -s -- -y
+  rustup default stable
   export PATH=$CARGO_HOME/bin:$PATH
   . "/github/workspace/public/scx-scheds-git-bpfland/src/build/env"
   cd $_gitname
@@ -83,7 +84,7 @@ build() {
 package() {
   export CARGO_HOME=build
   export RUSTUP_HOME=build
-  RUSTUP_HOME=$RUSTUP_HOME CARGO_HOME=$CARGO_HOME bash -c 'curl https://sh.rustup.rs -sSf' | sh -s -- -y
+  #RUSTUP_HOME=$RUSTUP_HOME CARGO_HOME=$CARGO_HOME bash -c 'curl https://sh.rustup.rs -sSf' | sh -s -- -y
   export PATH=$CARGO_HOME/bin:$PATH
   . "/github/workspace/public/scx-scheds-git-bpfland/src/build/env"
   cd $_gitname
