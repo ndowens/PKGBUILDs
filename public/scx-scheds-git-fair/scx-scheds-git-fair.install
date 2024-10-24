@@ -1,0 +1,8 @@
+post_install() {
+
+  cat /etc/default/scx <<EOF
+  SCX_SCHEDULER=scx_fair
+  SCX_FLAGS=" -k "
+EOF
+
+}
