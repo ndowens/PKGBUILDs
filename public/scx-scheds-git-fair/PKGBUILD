@@ -32,6 +32,7 @@ sha256sums=('SKIP')
 options=(!lto)
 provides=("scx-scheds=$pkgver")
 conflicts=("scx-scheds" "scx-scheds-git")
+install=fair.install
 
 _backports=(
 )
