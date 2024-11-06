@@ -1,0 +1,29 @@
+pkgbase = scx-scheds-git-bpfland
+	pkgdesc = sched_ext schedulers and tools
+	pkgver = 1.0.4.r59.g07fa45c
+	pkgrel = 1
+	url = https://github.com/sched-ext/scx
+	arch = x86_64
+	arch = aarch64
+	license = GPL-2.0-only
+	makedepends = clang
+	makedepends = git
+	makedepends = llvm
+	makedepends = llvm-libs
+	makedepends = meson
+	makedepends = python
+	makedepends = rust
+	depends = bpf
+	depends = jq
+	depends = libbpf
+	depends = libelf
+	depends = zlib
+	provides = scx-scheds=1.0.4.r59.g07fa45c
+	conflicts = scx-scheds
+	conflicts = scx-scheds-git
+	options = !lto
+	backup = etc/default/scx
+	source = git+https://github.com/sched-ext/scx#bpfland-next
+	sha256sums = SKIP
+
+pkgname = scx-scheds-git-bpfland
