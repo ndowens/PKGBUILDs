@@ -26,7 +26,7 @@ makedepends=(
   python
   rust
 )
-source=("git+https://github.com/sched-ext/scx#bpfland-next")
+source=("git+https://github.com/sched-ext/scx#branch=bpfland-next")
 sha256sums=('SKIP')
 options=(!lto)
 provides=("scx-scheds=$pkgver")
