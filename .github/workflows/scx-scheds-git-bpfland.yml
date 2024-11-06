@@ -23,7 +23,7 @@ jobs:
     strategy:
       matrix:
         repository: [personal]
-    uses: ./github-bpfland/workflows/job_pkgrepo.yml
+    uses: ./.github/workflows/job_pkgrepo.yml
     with:
       pkgdir: public/scx-scheds-git-bpfland
       repository: ${{ matrix.repository }}
