@@ -23,7 +23,7 @@ pkgbase = scx-scheds-git-bpfland
 	conflicts = scx-scheds-git
 	options = !lto
 	backup = etc/default/scx
-	source = git+https://github.com/sched-ext/scx#bpfland-next
+	source = git+https://github.com/sched-ext/scx#branch=bpfland-next
 	sha256sums = SKIP
 
 pkgname = scx-scheds-git-bpfland
