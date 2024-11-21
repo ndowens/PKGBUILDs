@@ -13,7 +13,7 @@ pkgbase = protonmail-desktop
 	optdepends = pipewire: WebRTC desktop sharing under Wayland
 	optdepends = trash-cli: file deletion support (trash-put)
 	optdepends = xdg-utils: open URLs with desktop’s default (xdg-email, xdg-open)
-	source = https://proton.me/download/mail/linux/1.2.1/ProtonMail-desktop-beta.deb
+	source = https://proton.me/download/mail/linux/1.4.0/ProtonMail-desktop-beta.deb
 	sha256sums = SKIP
 
 pkgname = protonmail-desktop
