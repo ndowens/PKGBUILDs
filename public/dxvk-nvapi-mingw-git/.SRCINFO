@@ -6,7 +6,7 @@ pkgbase = dxvk-nvapi-mingw-git
 	arch = x86_64
 	license = MIT
 	makedepends = ninja
-	makedepends = meson>=0.43
+	makedepends = meson
 	makedepends = glslang
 	makedepends = git
 	makedepends = mingw-w64-gcc
